@@ -32,19 +32,19 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
       <nav
         className={cn(
-          "flex w-full max-w-4xl items-center justify-between rounded-full px-3 py-2 transition-all duration-300",
+          "flex w-full max-w-5xl items-center justify-between gap-3 rounded-full px-4 py-2 transition-all duration-300",
           scrolled ? "glass shadow-soft" : "bg-transparent",
         )}
       >
         <a
           href="#home"
-          className="ml-2 font-display text-lg font-bold tracking-tight"
+          className="ml-1 shrink-0 font-display text-lg font-bold tracking-tight"
         >
           <span className="text-gradient">{profile.name}</span>
           <span className="text-accent">.</span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 md:flex lg:gap-1">
           {navItems.map((item) => {
             const id = item.href.replace("#", "");
             const isActive = active === id;
@@ -53,7 +53,7 @@ export function Navbar() {
                 <a
                   href={item.href}
                   className={cn(
-                    "relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors",
+                    "relative rounded-full px-3 py-1.5 text-sm font-medium transition-colors",
                     isActive
                       ? "text-accent"
                       : "text-muted hover:text-foreground",
@@ -77,12 +77,12 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={openPalette}
             aria-label="Open command palette"
-            className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-subtle transition-colors hover:text-accent sm:flex"
+            className="hidden items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-subtle transition-colors hover:text-accent lg:flex"
           >
             <Command className="h-3.5 w-3.5" />
             <span>⌘K</span>
