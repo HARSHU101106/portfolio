@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Github, ExternalLink, Download } from "lucide-react";
 import type { Project } from "@/types";
 import { Card, Tag, Badge } from "@/components/ui/card";
 
@@ -48,6 +48,17 @@ export function ProjectCard({ project }: { project: Project }) {
                 className="glass grid h-9 w-9 place-items-center rounded-full text-foreground hover:text-accent"
               >
                 <ExternalLink className="h-4 w-4" />
+              </a>
+            )}
+            {project.links.download && (
+              <a
+                href={project.links.download}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Download app"
+                className="glass grid h-9 w-9 place-items-center rounded-full text-foreground hover:text-accent"
+              >
+                <Download className="h-4 w-4" />
               </a>
             )}
           </div>

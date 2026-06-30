@@ -20,6 +20,7 @@ export interface Project {
     demo?: string;
     github?: string;
     caseStudy?: string;
+    download?: string;
   };
   image?: string;
   year: number;

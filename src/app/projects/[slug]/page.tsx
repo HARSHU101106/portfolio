@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Download } from "lucide-react";
 import { projects } from "@/data/projects";
 import { Tag, Badge } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,6 +64,13 @@ export default async function ProjectPage({
           <Button asChild variant="secondary">
             <a href={project.links.github} target="_blank" rel="noreferrer">
               <Github className="h-4 w-4" /> Source
+            </a>
+          </Button>
+        )}
+        {project.links.download && (
+          <Button asChild variant="secondary">
+            <a href={project.links.download} target="_blank" rel="noreferrer">
+              <Download className="h-4 w-4" /> Download App
             </a>
           </Button>
         )}
