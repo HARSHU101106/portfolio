@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowLeft, Github, ExternalLink, Download } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -76,7 +77,18 @@ export default async function ProjectPage({
         )}
       </div>
 
-      <div className="mt-10 aspect-[16/9] rounded-2xl bg-[linear-gradient(135deg,var(--accent)/0.15,var(--accent-3)/0.15)]" />
+      <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl bg-[linear-gradient(135deg,var(--accent)/0.15,var(--accent-3)/0.15)]">
+        {project.image && (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            priority
+          />
+        )}
+      </div>
 
       <div className="prose-portfolio mt-10 space-y-6 text-foreground/90">
         <section>

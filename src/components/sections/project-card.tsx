@@ -1,11 +1,38 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
-import { ArrowUpRight, Github, ExternalLink, Download } from "lucide-react";
-import type { Project } from "@/types";
+import {
+  ArrowUpRight,
+  Github,
+  ExternalLink,
+  Download,
+  Smartphone,
+  Bot,
+  LineChart,
+  BrainCircuit,
+  BookOpen,
+  Sparkles,
+} from "lucide-react";
+import type { Project, ProjectCategory } from "@/types";
 import { Card, Tag, Badge } from "@/components/ui/card";
 
+const categoryIcon: Record<ProjectCategory, typeof Sparkles> = {
+  "Full Stack": Smartphone,
+  "AI/ML": BrainCircuit,
+  "Data Science": LineChart,
+  Other: BookOpen,
+};
+
+function slugIcon(slug: string): typeof Sparkles | null {
+  if (slug.includes("chatbot")) return Bot;
+  if (slug.includes("book")) return BookOpen;
+  return null;
+}
+
 export function ProjectCard({ project }: { project: Project }) {
+  const Icon = slugIcon(project.slug) ?? categoryIcon[project.category];
+
   return (
     <motion.div
       layout
@@ -17,11 +44,35 @@ export function ProjectCard({ project }: { project: Project }) {
       <Card className="group flex h-full flex-col overflow-hidden p-0 hover:-translate-y-1.5 hover:shadow-glow">
         {/* Thumbnail */}
         <div className="relative aspect-[16/10] overflow-hidden bg-[linear-gradient(135deg,var(--accent)/0.15,var(--accent-3)/0.15)]">
-          <div className="absolute inset-0 grid place-items-center">
-            <span className="font-display text-2xl font-bold text-foreground/20">
-              {project.title}
-            </span>
-          </div>
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <>
+              <div
+                className="absolute inset-0 opacity-[0.07]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(currentColor 1px, transparent 1px)",
+                  backgroundSize: "16px 16px",
+                }}
+              />
+              <div className="absolute inset-0 grid place-items-center">
+                <Icon
+                  className="h-16 w-16 text-accent/40 transition-transform duration-500 group-hover:scale-110"
+                  strokeWidth={1.25}
+                />
+              </div>
+              <span className="absolute bottom-3 left-4 right-4 font-display text-sm font-semibold text-foreground/30">
+                {project.title}
+              </span>
+            </>
+          )}
           {project.featured && (
             <Badge className="absolute left-3 top-3 bg-background/80 backdrop-blur">
               ★ Featured
