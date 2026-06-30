@@ -48,8 +48,15 @@ export function Contact() {
         });
         if (!res.ok) throw new Error("failed");
       } else {
-        // No endpoint configured yet — simulate success in dev.
-        await new Promise((r) => setTimeout(r, 800));
+        // No backend configured — open the user's email client with a
+        // prefilled message so it can actually be sent.
+        const subject = encodeURIComponent(
+          `Portfolio enquiry from ${values.name}`,
+        );
+        const body = encodeURIComponent(
+          `${values.message}\n\n— ${values.name} (${values.email})`,
+        );
+        window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
       }
       setStatus("sent");
       reset();

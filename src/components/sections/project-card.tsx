@@ -13,6 +13,9 @@ import {
   BrainCircuit,
   BookOpen,
   Sparkles,
+  Cat,
+  Car,
+  Palette,
 } from "lucide-react";
 import type { Project, ProjectCategory } from "@/types";
 import { Card, Tag, Badge } from "@/components/ui/card";
@@ -25,7 +28,10 @@ const categoryIcon: Record<ProjectCategory, typeof Sparkles> = {
 };
 
 function slugIcon(slug: string): typeof Sparkles | null {
+  if (slug.includes("cat")) return Cat;
   if (slug.includes("chatbot")) return Bot;
+  if (slug.includes("rover")) return Car;
+  if (slug.includes("art")) return Palette;
   if (slug.includes("book")) return BookOpen;
   return null;
 }

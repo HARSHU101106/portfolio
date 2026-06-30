@@ -31,7 +31,8 @@ export const education: TimelineItem[] = [
     description:
       "Online degree program focused on data science, statistics, and applied machine learning.",
     highlights: [
-      "Coursework: Statistics, Python, Machine Learning, Data Analysis",
+      "Courses: Data Structures & Algorithms using Python, Fundamentals of Python, Machine Learning, Statistics, Tools in Data Science",
+      "GPA: 6.55",
     ],
   },
   {

@@ -16,7 +16,7 @@ export const projects: Project[] = [
       download:
         "https://expo.dev/accounts/harshini101106/projects/beauty-parlour-app/builds/841f8f20-75ce-4301-99a2-0de39e3a321a",
     },
-    year: 2025,
+    year: 2026,
   },
   {
     slug: "harsh-core-chatbot",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
       github: "https://github.com/HARSHU101106/student_performance_predictor",
       demo: "https://studentperformancepredictor-nlosma7xyxllfma8bcxxpw.streamlit.app/",
     },
-    year: 2024,
+    year: 2025,
   },
   {
     slug: "smart-disaster-rover",
@@ -93,6 +93,20 @@ export const projects: Project[] = [
     metric: { label: "Domain", value: "IoT + AI" },
     links: {
       demo: "https://www.linkedin.com/posts/harshinis06_if-my-smart-disaster-response-and-safety-ugcPost-7429198168006975488-UaSC/",
+    },
+    year: 2025,
+  },
+  {
+    slug: "catch-the-cat-game",
+    title: "Catch the Cat Game",
+    tagline: "No-code Android game built with MIT App Inventor",
+    description:
+      "A fun 'Catch the Cat' Android game built entirely with MIT App Inventor's no-code, block-based environment. Demonstrates event-driven logic, sprite animation, and interactive gameplay without writing traditional code. A downloadable Android APK is available.",
+    category: "Other",
+    tech: ["MIT App Inventor", "No-Code", "Android", "Game"],
+    metric: { label: "Built with", value: "No-Code" },
+    links: {
+      download: "https://ai2a.appinventor.mit.edu/b/2v1oa",
     },
     year: 2025,
   },

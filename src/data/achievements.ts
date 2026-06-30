@@ -3,6 +3,18 @@ import type { Achievement, Certification, CodingProfile } from "@/types";
 
 export const certifications: Certification[] = [
   {
+    title: "Introduction to Machine Learning (Elite)",
+    issuer: "NPTEL",
+    date: "2026",
+    skills: ["Machine Learning", "Elite Certification"],
+  },
+  {
+    title: "Foundations of Programming & Data Science",
+    issuer: "IIT Madras",
+    date: "2025",
+    skills: ["Programming", "Data Science"],
+  },
+  {
     title: "Microsoft Applied Skills",
     issuer: "Microsoft",
     date: "2025",
@@ -23,7 +35,7 @@ export const certifications: Certification[] = [
   {
     title: "EF SET English Certificate — C2 Proficiency",
     issuer: "EF SET",
-    date: "2024",
+    date: "2025",
     skills: ["English", "C2 Proficiency"],
   },
   {
@@ -41,6 +53,13 @@ export const certifications: Certification[] = [
 ];
 
 export const achievements: Achievement[] = [
+  {
+    title: "TCS CodeVita Season 13 — Global Rank 4543",
+    description:
+      "Participated in TCS CodeVita Season 13 and secured a global rank of 4543 among programmers worldwide.",
+    date: "2025-2026",
+    icon: Trophy,
+  },
   {
     title: "2nd Place — Coding Competition",
     description:
